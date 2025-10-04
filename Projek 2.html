@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        :root {
+            --bg-color: #1a1a1a;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image: url("Media/Foto\ Perkotaan\ Futuristik.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--heading-color);
+        }
+        
+        #page-content {
+            padding-top: 120px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+            min-height: 80vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            padding: 2rem;
+            gap: 1.5rem;
+        }
+        
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .product-card {
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .product-card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--heading-color);
+        }
+        
+        .right-panel {
+            display: grid;
+            grid-template-columns: 0.3fr 1.7fr;
+            padding: 2rem;
+            gap: 2rem;
+        }
+        
+        .product-details h2 {
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.2);
+        }
+        
+        .product-image-main {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image-main img {
+            width: 70%;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .icon-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .add-to-cart {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--heading-color);
+            color: #000;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar glass-panel">
+            <a href="#" class="nav-logo">Fadly Setiawan</a>
+            <div class="nav-menu">
+                <a href="#Profile" class="nav-link active" data-page="Profile">Profile</a>
+                <a href="#Perkuliahan" class="nav-link" data-page="Perkuliahan">Perkuliahan</a>
+                <a href="#Magang" class="nav-link" data-page="Magang">Magang</a>
+                <a href="#Organisasi" class="nav-link" data-page="Organisasi">Organisasi</a>
+            </div>
+            <div class="nav-extra">
+                <a href="#" class="nav-link">Institut Teknologi Nasional</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="page-content" class="container">
+
+        <section id="Profile" class="page active">
+            <div class="product-showcase glass-panel">
+                <div class="left-panel">
+                    <div class="product-card glass-panel">
+                        <p>Perencanan Wilayah dan Kota</p>
+                        <h3 class="product-title">Institut Teknologi Nasional Bandung</h3>
+                        <li>Saya adalah mahasiswa yang baru lulus pada tahun ini (2025).</li>
+                        <img src="Media/Peta 1.png" alt="Peta Contoh">
+                        <div class="icon-btn" style="position: absolute; top:1.5rem; right:1.5rem;">🔍</div>
+                    </div>
+                     <div class="product-card glass-panel" style="text-align:center;">
+                        <h3 class="product-title">Keahlian</h3>
+                    </div>
+                </div>
+                <div class="right-panel glass-panel">
+                    <div class="product-details">
+                        <h2>01</h2>
+                        <p style="color: var(--heading-color); font-weight: 500;">CLASSIC HOODIE</p>
+                        <p>BY O2 STUDIO</p>
+                    </div>
+                    <div class="product-image-main">
+                        <img src="Media/Peta 2.png" alt="Main Hoodie">
+                        <div class="bubble" style="width: 100px; height: 100px; top: 10%; left: 15%;"></div>
+                        <div class="bubble" style="width: 50px; height: 50px; top: 20%; left: 5%;"></div>
+                        <div class="bubble" style="width: 80px; height: 80px; bottom: 25%; left: 10%;"></div>
+                        <div class="bubble" style="width: 120px; height: 120px; top: 15%; right: 5%;"></div>
+                        <div class="bubble" style="width: 60px; height: 60px; bottom: 15%; right: 15%;"></div>
+                    </div>
+                    <a href="#" class="add-to-cart">Add to cart  +</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="Perkuliahan" class="page">
+            <div class="glass-panel" style="padding: 4rem; text-align: center;">
+                <h1 style="font-size: 3rem; color: var(--heading-color);">New Items Coming Soon</h1>
+                <p>Stay tuned for our latest drops and exclusive collections.</p>
+                <img src="Media/Peta 1.png" alt="Peta Contoh">
+            </div>
+        </section>
+        
+        <section id="Magang" class="page">
+             <div class="glass-panel" style="padding: 4rem; text-align: center;">
+                <h1 style="font-size: 3rem; color: var(--heading-color);">Hottest Drops This Season</h1>
+                <p>Check out what's trending right now.</p>
+            </div>
+        </section>
+
+        <section id="Organisasi" class="page">
+             <div class="glass-panel" style="padding: 4rem; text-align: center;">
+                <h1 style="font-size: 3rem; color: var(--heading-color);">Our Full Collection</h1>
+                <p>Browse all items from the O2® Moonish series.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                
+                const targetPage = document.getElementById(pageId);
+                if(targetPage) {
+                    targetPage.classList.add('active');
+                }
+                
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === pageId);
+                });
+            }
+
+            navLinks.forEach(link => {
+                if (link.dataset.page) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const pageId = link.dataset.page;
+                        showPage(pageId);
+                    });
+                }
+            });
+
+            showPage('Profile');
+        });
+    </script>
+</body>
+</html>
