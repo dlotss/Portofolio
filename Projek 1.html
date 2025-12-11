@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio 2025 - Fadly</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: #0F172A;
+            --primary-color: #38BDF8;
+            --secondary-color: #1E293B;
+            --text-color: #CBD5E1;
+            --heading-color: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+       
+        }
+
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #7dd3fc;
+        }
+
+        .page {
+            display: none;
+            padding: 4rem 0;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .main-heading {
+            font-size: 3.5rem;
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+
+        .main-heading span {
+            color: var(--primary-color);
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 1.5rem;
+        }
+        
+        .nav-button {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        .nav-button:disabled {
+            border-color: #4B5563;
+            color: #4B5563;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="nav-logo">Portofolio 2025</a>
+            <ul class="nav-menu">
+                <li><a class="nav-link active" data-page="Halaman Utama">Home</a></li>
+                <li><a class="nav-link" data-page="Halaman 2">Profile</a></li>
+                <li><a class="nav-link" data-page="Halaman 3">Kuliah</a></li>
+                <li><a class="nav-link" data-page="Halaman 4">Magang</a></li>
+                <li><a class="nav-link" data-page="Halaman 5">Organisasi</a></li>
+            </ul>
+            <a href="#" class="cta-button">Linkedin:fadlyse14</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="Halaman Utama" class="page active">
+            <div class="grid-container">
+                <div class="hero-text">
+                    <p>Fadly Setiawan</p>
+                    <h1 class="main-heading">Apa itu PWK???</h1>
+                    <p>Perencanaan Wilayah dan Kota atau yang biasa disebut PWK adalah ilmu yang memperlajari mengenai .... Umumnya jurusan ini akan menghasilkan sebuah rencana seperti Rencana Tata Ruang Wilayah, Rencana Detail Tata Ruang, dan Rencana Transportasi</p>
+                    <a href="#" class="cta-button">Linkedin:fadlyse14</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="Media/Foto Perkotaan Futuristik.jpg" alt="Sampul Halaman">
+                </div>
+            </div>
+        </section>
+
+        <section id="Halaman 2" class="page">
+            <div class="grid-container">
+                <div class="hero-image-wrapper">
+                    <img src="Media/Background Perkotaan Bandung.jpeg" alt= "Foto Profile">
+                </div>
+                <div>
+                    <p>Fadly Setiawan</p>
+                    <h2 class="main-heading">Urban Planner<span> Urban Design</span></h2>
+                    <p>Saya Cukup berpengalaman dalam blablablabalabla</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="Halaman 3" class="page">
+            <h2 class="main-heading">Pengalaman<span> Perkuliahan</span></h2>
+            <p>Berikut merupakan pengalaman semasa perkuliahan dengan berbagai analisis yang sudah dikerjakan</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="Media/Peta 1.png" alt="RTRW">
+                    <div class="project-info">
+                        <h3>RTRW Jurucinarayu</h3>
+                        <p>Dalam penyusunan ini saya mengerjakan analisis Sarana dan Prasarana</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Media/Peta 2.png" alt="RDTR">
+                    <div class="project-info">
+                        <h3>RDTR Perkotaan Cianjur</h3>
+                        <p>Perkotaan Cianjur merupakan lokasi yang strategis yang terletak dalam wilayah Kabupaten Cianjur</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Media/Peta 3.png" alt="Transportasi">
+                    <div class="project-info">
+                        <h3>Rencana Transportasi Cianjur</h3>
+                        <p>Rencana ini merupakan bentuk dalam menanggulangi kemacetan pada Perkotaan Cianjur</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Halaman 4" class="page">
+            <h2 class="main-heading">Pengalaman<span> Magang</span></h2>
+            <p>Proyek saya adalah penyediaan lahan untuk UPT Puskesmas</p>
+                <li>Analisis Kesesuaian Pola Ruang</li>
+                <li>Analisis Satuan kemampuan Lahan</li>
+                <li>Analisis Radius Pelayanan</li>
+        </section>
+        <section id="Halaman 5" class="page">
+            <h2 class="main-heading">Pengalaman<span> Organisasi</span></h2>
+            <p>Semasa Perkuliahan saya cukup aktif dalam berorganisasi yaitu pada Himpunan Mahasiswa Planogi Itenas (HMPL)</p>
+            <p>Divisi Aset</p>
+            <p>Divisi Pendidikan</p>
+            <p>Divisi Penelitian dan Pengembangan</p>
+        </section>
+
+        <div class="navigation-buttons">
+            <button id="prevBtn" class="nav-button">Fadly@gmail.com</button>
+            <button id="nextBtn" class="nav-button">Intitut Teknologi Nasional Bandung</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            let currentPageIndex = 0;
+            const pageOrder = ['Halaman Utama', 'Halaman 1', 'Halaman 2', 'Halaman 3', 'Halaman 4', 'Halaman 5'];
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.classList.add('active');
+                }
+                
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === pageId);
+                });
+
+                currentPageIndex = pageOrder.indexOf(pageId);
+                prevBtn.disabled = currentPageIndex === 0;
+                nextBtn.disabled = currentPageIndex === pageOrder.length - 1;
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = link.dataset.page;
+                    showPage(pageId);
+                });
+            });
+
+
+            showPage('Halaman Utama');
+        });
+    </script>
+
+</body>
+</html>
